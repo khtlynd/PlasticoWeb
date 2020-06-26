@@ -11,7 +11,10 @@ function changingChart(year) {
         var month = i;
         var binactivity = 0;
         for (var x = 0; x < ulength; x++) {
-            if (fromuserjson[userdata[x]]["month"] == month && fromuserjson[userdata[x]]["year"] == year) {
+            dateD = fromuserjson[userdata[x]]["date"];
+            monthD = dateD.split("-")[1];
+            yearD = dateD.split("-")[0];
+            if (monthD == month && yearD == year) {
                 binactivity = binactivity + 1
             }
         }

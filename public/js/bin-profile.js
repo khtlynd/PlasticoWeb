@@ -13,7 +13,6 @@ var refBinData = firebase.database().ref("bin/" + id);
 refBinData.on('value', function(snapshot) {
     $("#name").html(snapshot.child("bin_name").val());
     $("#address").html(snapshot.child("address").val());
-    $("#last_accessed").html(snapshot.child("last_activity").val());
     $("#binCapacity").html(snapshot.child("bin_capacity").val() + ' %');
     QRCode.toCanvas(document.getElementById('qrCode'), String(snapshot.key), function(error) {});
 
@@ -112,7 +111,11 @@ function changeChart(year, month) {
     for (var i = 1; i <= 31; i++) {
         var binactivity = 0;
         for (var x = 0; x < ulength; x++) {
-            if (String(i) == fromuserjson[userdata[x]]["date"] && fromuserjson[userdata[x]]["bin_id"] == getUrlVars()["id"] && fromuserjson[userdata[x]]["month"] == month && fromuserjson[userdata[x]]["year"] == year) {
+            dateD = fromuserjson[userdata[x]]["date"];
+            monthD = String(parseInt(dateD.split("-")[1]));
+            yearD = dateD.split("-")[0];
+            dayD = String(parseInt(dateD.split("-")[2]));
+            if (String(i) == dayD && fromuserjson[userdata[x]]["bin_id"] == getUrlVars()["id"] && monthD == month && yearD == year) {
                 binactivity = binactivity + 1
             }
         }

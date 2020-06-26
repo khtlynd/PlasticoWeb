@@ -35,7 +35,10 @@ function changeChart(year) {
 
     //get all bin id
     for (var x = 0; x < ulength; x++) {
-        if (fromuserjson[userdata[x]]["year"] == year) {
+        dateD = fromuserjson[userdata[x]]["date"];
+        monthD = dateD.split("-")[1];
+        yearD = dateD.split("-")[0];
+        if (yearD == year) {
             if (!dataIsAppend.includes(fromuserjson[userdata[x]]["bin_id"])) {
                 dataIsAppend.push(fromuserjson[userdata[x]]["bin_id"]);
             }
@@ -46,9 +49,12 @@ function changeChart(year) {
     for (var i = 0; i < dataIsAppend.length; i++) {
         dataPackRow = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         for (var x = 0; x < ulength; x++) {
-            if (fromuserjson[userdata[x]]["year"] == year) {
+            dateD = fromuserjson[userdata[x]]["date"];
+            monthD = dateD.split("-")[1];
+            yearD = dateD.split("-")[0];
+            if (yearD == year) {
                 if (dataIsAppend[i] == fromuserjson[userdata[x]]["bin_id"]) {
-                    var index = dates.indexOf(fromuserjson[userdata[x]]["month"]);
+                    var index = dates.indexOf(String(parseInt(monthD)));
                     dataPackRow[index] = dataPackRow[index] + 1
                 }
             }
@@ -65,6 +71,7 @@ function changeChart(year) {
             }
         }
     }
+
 
     var items = {
         type: 'bar',

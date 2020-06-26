@@ -41,6 +41,8 @@ refBin.on('child_added', function(snapshot) {
 
     //showing bin option list
     $("#dataBin").append(dataBin).hide().show('fast');
+
+    // $("#SelectBin").append(`<option value="` + snapshot.key + `"> Plastico ` + snapshot.child("bin_name").val() + ` </option>`);
 });
 
 
