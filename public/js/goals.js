@@ -6,7 +6,7 @@ refGoals.on('child_added', function(snapshot) {
     <td>` + snapshot.child("exp_period").val() + ` days</td>
     <td>` + snapshot.child("target").val() + ` times</td>
     <td>` + snapshot.child("extra_point").val() + ` pts</td>
-    <td><button class="btnDelete" onclick="btnDelete('` + snapshot.key + `')">Delete</button></td>
+    <td><button class="btn btn-danger" onclick="btnDelete('` + snapshot.key + `')">Delete</button></td>
 </tr>`
 
     //Function to show data in table

@@ -17,7 +17,7 @@ refDataUser.once('value', function(snapshot) {
     $("#uname").html("@" + snapshot.child("username").val());
     $("#email").html(snapshot.child("email").val());
     $("#point").html(snapshot.child("current_point").val() + " pts");
-    $("#lastactivity").html(snapshot.child("lastactivity").val());
+    $("#lastactivity").html(snapshot.child("last_activity").val());
 
     stat = snapshot.child("user_status").val();
     if (stat == 0) {

@@ -5,7 +5,7 @@ refReward.on('child_added', function(snapshot) {
     <td>` + snapshot.child("reward_name").val() + ` </td>
     <td>` + snapshot.child("content").val() + ` </td>
     <td>` + snapshot.child("redeem_point").val() + ` pts</td>
-    <td><button class="btnDelete" onclick="btnDelete('` + snapshot.key + `')">Delete</button></td>
+    <td><button class="btn btn-danger" onclick="btnDelete('` + snapshot.key + `')">Delete</button></td>
 </tr>`
 
     //Function to show data in table

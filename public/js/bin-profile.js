@@ -13,6 +13,7 @@ var refBinData = firebase.database().ref("bin/" + id);
 refBinData.on('value', function(snapshot) {
     $("#name").html(snapshot.child("bin_name").val());
     $("#address").html(snapshot.child("address").val());
+    $("#last_accessed").html(snapshot.child("last_activity").val());
     $("#binCapacity").html(snapshot.child("bin_capacity").val() + ' %');
     QRCode.toCanvas(document.getElementById('qrCode'), String(snapshot.key), function(error) {});
 
