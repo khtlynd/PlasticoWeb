@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Notification | Plastico</title>
+    <%- include('partials/head.ejs') %>
+</head>
+
+<body class="sb-nav-fixed">
+    <%- include('partials/header.ejs') %>
+        <div id="layoutSidenav">
+            <%- include('partials/sidenav.ejs') %>
+
+                <div id="layoutSidenav_content">
+                    <main>
+                        <div class="container-fluid">
+                            <h1 class="mt-4">Notification Log</h1>
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Notification Log</li>
+                            </ol>
+
+                            <!-- Table User Notif Log -->
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h4>User Notification Log</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="notifUser" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Username</th>
+                                                    <th>Description</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Table Bin Notif Log -->
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h4>Bin Notification Log</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="binNotif" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Bin Name</th>
+                                                    <th>Description</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    <footer class="py-4 bg-light mt-auto">
+                        <%- include('partials/footer.ejs') %>
+                    </footer>
+                </div>
+        </div>
+        <%- include('partials/script.ejs') %>
+</body>
+
+<script src="js/notification.js"></script>

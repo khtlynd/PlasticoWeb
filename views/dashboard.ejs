@@ -1,0 +1,134 @@
+<head>
+    <title>Dashboard | Plastico</title>
+    <%- include('partials/head.ejs') %>
+</head>
+
+<body class="sb-nav-fixed">
+    <%- include('partials/header.ejs') %>
+
+        <div id="layoutSidenav">
+            <%- include('partials/sidenav.ejs') %>
+
+                <div id="layoutSidenav_content">
+                    <main>
+                        <div class="container-fluid">
+                            <h1 class="mt-4">Dashboard</h1>
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                            </ol>
+
+                            <!-- Small Infos -->
+                            <div class="row">
+                                <div class="col-xl-3 col-md-6">
+                                    <div class="card bg-success text-white mb-4">
+                                        <div class="card-body"><span class="fas fa-user" style="margin-right: 5%;"></span>Total Active Users</div>
+                                        <center>
+                                            <h1 id="totalUser"></h1>
+                                        </center>
+                                        <div class="card-footer d-flex align-items-center justify-content-between">
+                                            <a class="small text-white stretched-link" href="user">View Details</a>
+                                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6">
+                                    <div class="card bg-success text-white mb-4">
+                                        <div class="card-body"><span class="fas fa-trash" style="margin-right: 5%;"></span>Total Active Bins</div>
+                                        <center>
+                                            <h1 id="totalBin"></h1>
+                                        </center>
+                                        <div class="card-footer d-flex align-items-center justify-content-between">
+                                            <a class="small text-white stretched-link" href="bin">View Details</a>
+                                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6">
+                                    <div class="card bg-warning text-white mb-4">
+                                        <div class="card-body"><span class="fas fa-exclamation-triangle" style="margin-right: 5%;"></span>Almost Full Bins</div>
+                                        <center>
+                                            <h1 id="almostFull"></h1>
+                                        </center>
+                                        <div class="card-footer d-flex align-items-center justify-content-between">
+                                            <a class="small text-white stretched-link" href="bin">View Details</a>
+                                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Feedback Table  -->
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-table mr-1"></i> Users Feedback
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="feedback" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Username</th>
+                                                    <th>Star</th>
+                                                    <th>Rating</th>
+                                                    <th>Feedback</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Graphs -->
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <i class="fas fa-chart-bar mr-1"></i> Bar Chart Example
+                                        </div>
+                                        <center>
+                                            <div class="form-group">
+                                                <label id="year" for="selYear">Select Year :</label>
+                                                <select class="form-control" id="selYear" style="width: 100px;">
+                                      <option value="2020">2020</option>
+                                      <option value="2021">2021</option>
+                                      <option value="2022">2022</option>
+                                    </select>
+                                            </div>
+                                        </center>
+                                        <div class="card-body"><canvas id="barChart" width="100%" height="40"></canvas></div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <i class="fas fa-chart-area mr-1"></i> Users Activity Chart
+                                        </div>
+                                        <center>
+                                            <div class="form-group">
+                                                <label id="year" for="selYear">Select Year :</label>
+                                                <select class="form-control" id="selYear" style="width: 100px;">
+                                      <option value="2020">2020</option>
+                                      <option value="2021">2021</option>
+                                      <option value="2022">2022</option>
+                                    </select>
+                                            </div>
+                                        </center>
+                                        <div class="card-body"><canvas id="lineChart" width="100%" height="40"></canvas></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    <footer class="py-4 bg-light mt-auto">
+                        <%- include('partials/footer.ejs') %>
+                    </footer>
+                </div>
+        </div>
+        <%- include('partials/script.ejs') %>
+</body>
+
+<script src="js/dashboard-query.js"></script>
+<script src="js/user-graph.js"></script>
+<script src="js/bin-graph.js"></script>
+<script src="js/feedback.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>

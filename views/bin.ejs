@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bin | Plastico</title>
+    <%- include('partials/head.ejs') %>
+</head>
+
+<body class="sb-nav-fixed">
+    <%- include('partials/header.ejs') %>
+
+        <div id="layoutSidenav">
+            <%- include('partials/sidenav.ejs') %>
+
+                <div id="layoutSidenav_content">
+                    <main>
+                        <div class="container-fluid">
+                            <h1 class="mt-4">Bin Information</h1>
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Bin</li>
+                            </ol>
+
+                            <!-- Maps -->
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h4>Plastico Bin Location</h4>
+                                    <p>Here are the locations of each active Plastico Bin. Take a look to the maps below!</p>
+                                </div>
+                                <div class="card-body">
+                                    <div id="map" style="width:100%;height:400px;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Table Bin -->
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h4>List of Bin</h4>
+                                    <p>Here are the list of all Plastico smart-bin with the brief information about them.</p>
+                                </div>
+                                <div class="card-body">
+                                    <a class="btn btn-primary text-white" style="margin-bottom: 1%" data-toggle="modal" data-target="#assignBin">Add New Bin</a>
+
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataBin" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Location</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Assign Bin Modal  -->
+                            <div class="modal fade" id="assignBin">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Add New Bin</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            <form action="javascript:void(0)">
+                                                <div class="form-group">
+                                                    <label class="small mb-1" for="binName">Bin Name</label>
+                                                    <input class="form-control py-4" id="binName" type="text" placeholder="Enter bin name" required/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="small mb-1" for="longitude">Longitude (E / -W)</label>
+                                                    <input class="form-control py-4" id="binLongitude" type="number" placeholder="Enter longitude point" required />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="small mb-1" for="latitude">Latitude (N / -S)</label>
+                                                    <input class="form-control py-4" id="binLatitude" type="number" placeholder="Enter latitude point" required />
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" id="Submit">Save</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    <footer class="py-4 bg-light mt-auto">
+                        <%- include('partials/footer.ejs') %>
+                    </footer>
+                </div>
+        </div>
+        <%- include('partials/script.ejs') %>
+</body>
+
+<script src="js/maps.js"></script>
+<script src="js/binperf.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGxmlhtwYl-7j1CErkaPu2Gl62r4jngk0&callback=myMap"></script>
+<script src="js/qrcode.min.js"></script>
+<script src="js/assign_bin.js"></script>

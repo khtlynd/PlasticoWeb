@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Setting | Plastico</title>
+    <%- include('partials/head.ejs') %>
+</head>
+
+<body class="sb-nav-fixed">
+    <%- include('partials/header.ejs') %>
+        <div id="layoutSidenav">
+            <%- include('partials/sidenav.ejs') %>
+                <div id="layoutSidenav_content">
+                    <main>
+                        <div class="container-fluid">
+                            <h1 class="mt-4">Notification Setting</h1>
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Notification Setting</li>
+                            </ol>
+
+                            <!-- Setting  -->
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h4>User Inactivity</h4>
+                                            <p>Set the range of user inactivity time to trigger sending email notification.</p>
+                                            <span id="usernotiftime"></span>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <b><p>Inactivity Threshold</p></b>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <input class="form-control py-3" id="notif_user" type="number" placeholder="Set time (in days)" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button type="button" class="btn btn-primary" id="userNotif">Set</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h4>Bin Inactivity</h4>
+                                            <p>Set the range of bin's inactivity time to trigger sending notification to admin.</p>
+                                            <span id="binnotiftime"></span>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <b><p>Inactivity Threshold</p></b>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <input class="form-control py-3" id="notif_bin" type="number" placeholder="Set time (in days)" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button type="button" class="btn btn-primary" id="binNotif">Set</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    <footer class="py-4 bg-light mt-auto">
+                        <%- include('partials/footer.ejs') %>
+                    </footer>
+                </div>
+        </div>
+        <%- include('partials/script.ejs') %>
+</body>
+
+<script src="js/notification.js"></script>

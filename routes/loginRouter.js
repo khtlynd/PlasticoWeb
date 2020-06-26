@@ -1,0 +1,18 @@
+const express = require("express")
+const router = express.Router()
+const loginController = require("../controller/loginController")
+
+router.get("/login", loginController.login)
+router.get("/register", loginController.register)
+router.get("/dashboard", loginController.dashboard)
+router.get("/bin", loginController.bin)
+router.get("/bin_profile", loginController.bin_profile)
+router.get("/user", loginController.user)
+router.get("/user_profile", loginController.user_profile)
+router.get("/article", loginController.article)
+router.get("/goals", loginController.goals)
+router.get("/reward", loginController.reward)
+router.get("/notification", loginController.notification)
+router.get("/notifsetting", loginController.notifsetting)
+router.get("/logout", loginController.logout)
+module.exports = router

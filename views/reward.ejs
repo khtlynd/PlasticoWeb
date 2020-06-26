@@ -1,0 +1,97 @@
+<head>
+    <title>Reward | Plastico</title>
+    <%- include('partials/head.ejs') %>
+</head>
+
+<body class="sb-nav-fixed">
+    <%- include('partials/header.ejs') %>
+
+        <div id="layoutSidenav">
+            <%- include('partials/sidenav.ejs') %>
+
+                <div id="layoutSidenav_content">
+                    <main>
+                        <div class="container-fluid">
+                            <h1 class="mt-4">User Reward</h1>
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Reward</li>
+                            </ol>
+
+                            <!-- Table Article -->
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h4>List of Rewards</h4>
+                                </div>
+                                <div class="card-body">
+                                    <a class="btn btn-primary text-white" style="margin-bottom: 1%" data-toggle="modal" data-target="#addReward">Add New Reward</a>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataRewards" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Reward Name</th>
+                                                    <th>Description</th>
+                                                    <th>Redeem Point</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add Article Modal  -->
+                        <div class="modal fade" id="addReward">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Add New Reward</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <form action="javascript:void(0)">
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="reward-name">Reward Name</label>
+                                                <input class="form-control py-4" id="title" type="text" placeholder="Enter reward name" required/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="content">Description</label>
+                                                <textarea class="form-control py-4" id="content" rows="5" name="content" form="content" placeholder="Enter description" required> </textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="redeempoint">Redeem Point</label>
+                                                <input class="form-control py-4" id="rpoint" type="number" placeholder="Enter redeem point" required/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="imgrewards">Image URL</label>
+                                                <input class="form-control py-4" id="rimage" type="url" placeholder="Enter image URL" required/>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" id="submit-reward">Save</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    <footer class="py-4 bg-light mt-auto">
+                        <%- include('partials/footer.ejs') %>
+
+                    </footer>
+                </div>
+        </div>
+        <%- include('partials/script.ejs') %>
+
+</body>
+
+<script src="js/rewards.js"></script>
+<script src="js/add-rewards.js"></script>
