@@ -48,7 +48,11 @@ $("#Submit").click(function() {
                 $("#binLatitude").val("")
                 $("#binLongitude").val("")
 
-                Notify.success('Data Successfully Added!');
+                Swal.fire(
+                    'Done!',
+                    'You have added new bin data',
+                    'success'
+                );
             });
         }
     }

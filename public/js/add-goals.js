@@ -12,7 +12,11 @@ $("#gSubmit").click(function() {
             "goals_id": snapshot.key
         });
 
-        Notify.success('New Goals Successfully Added!');
+        Swal.fire(
+            'Done!',
+            'You have added new goals',
+            'success'
+        );
 
         $("#gname").val("")
         $("#content").val("")

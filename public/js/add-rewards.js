@@ -1,4 +1,4 @@
-$("#submit-reward").click(function() {
+$("#rSubmit").click(function() {
     var refReward = firebase.database().ref("reward")
     refReward.push({
         "reward_name": $("#rname").val(),
@@ -9,10 +9,12 @@ $("#submit-reward").click(function() {
         refReward.child(snapshot.key).update({
             "reward_id": snapshot.key
         });
+        Swal.fire(
+            'Done!',
+            'You have added new reward',
+            'success'
+        );
 
-        Notify.success('New Reward Successfully Added!');
-
-        //reset form field
         $("#rname").val("")
         $("#content").val("")
         $("#rpoint").val("")

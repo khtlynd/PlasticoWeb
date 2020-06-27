@@ -9,6 +9,13 @@ function getUrlVars() {
 
 var id = getUrlVars()["id"];
 var refBinData = firebase.database().ref("bin/" + id);
+const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+});
 
 refBinData.on('value', function(snapshot) {
     $("#name").html(snapshot.child("bin_name").val());

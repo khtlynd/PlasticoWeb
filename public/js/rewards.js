@@ -14,20 +14,34 @@ refReward.on('child_added', function(snapshot) {
 
 //to delete content
 function btnDelete(uid) {
-    var result = confirm("Are you sure to delete?");
-    if (result) {
-        refGoals.child(uid).set({
-            "reward_id": null
-        }, function(error) {
-            if (error) {
-                // The write failed...
-                Notify.alert("Unable to delete data.")
-                $(".loading").hide();
-            } else {
-                // Data saved successfully!
-                $(".loading").hide();
-                window.location.reload(true);
-            }
-        });
-    }
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+    }).then((result) => {
+        if (result.value) {
+            refReward.child(uid).set({
+                "reward_id": null
+            })
+            $(".loading").hide();
+            window.location.reload(true);
+            Swal.fire(
+                'Deleted!',
+                'Reward has been deleted.',
+                'success'
+            );
+        } else if (error) {
+            // The write failed...
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            })
+            $(".loading").hide();
+        }
+    })
 }
