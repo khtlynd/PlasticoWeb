@@ -5,6 +5,7 @@ var app = express();
 const path = require("path")
 var bodyParser = require('body-parser');
 var urlencodeParser = bodyParser.urlencoded({ extended: false })
+var port = process.env.PORT || 8080;
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -23,5 +24,5 @@ const loginRouter = require("./routes/loginRouter")
     // routing
 app.use("/", loginRouter)
 
-app.listen(8080);
-console.log('Listening to port... Successfull!');
+app.listen(port);
+console.log('Successfully listening to port ' + port + '!');
